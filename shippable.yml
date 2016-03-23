@@ -11,5 +11,24 @@ node_js:
   - 5.0
 
 build:
+  pre_ci:
+    - docker build -t=quay.io/shippablequay/shiphitchcock1_sample_node .
+
+  pre_ci_boot:
+    image_name: quay.io/shippablequay/shiphitchcock1_sample_node
+    image_tag: latest
+    pull: false
+    options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
+
   ci:
-    - node --version
+    - ps -eax
+    - ls -al
+
+  post_ci:
+   # - docker build -t=quay.io/shippablequay/shiphitchcock1_sample_node_bb
+    - docker push quay.io/shippablequay/shiphitchcock1_sample_node_bb
+
+integrations:
+  hub:
+    - integrationName: ship-quay
+      type: quay.io

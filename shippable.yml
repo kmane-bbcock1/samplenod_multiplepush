@@ -3,13 +3,28 @@ language: node_js
 # Version number
 node_js:
   - 0.10
-  - 0.12
-  - 4.2.3
-  - iojs-v1
-  - iojs-v2
-  - iojs-v3
-  - 5.0
+  #- 0.12
+  #- 4.2.3
+  #- iojs-v1
+  #- iojs-v2
+  #- iojs-v3
+ # - 5.0
 
 build:
+  pre_ci:
+    - docker build -t=shiphitchcock1/nod_multiplepush:build .
+
+  pre_ci_boot:
+      image_name: shiphitchcock1/nod_multiplepush
+      image_tag: build
+      pull: false
+      options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
+
   ci:
-    - node --version
+    - node --version  
+    - ps -eax
+    - ls -al 
+
+  post_ci:
+    - docker tag -f shiphitchcock1/nod_multiplepush:build shiphitchcock1/nod_multiplepush:push
+    - docker push shiphitchcock1/nod_multiplepush:push

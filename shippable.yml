@@ -26,8 +26,8 @@ build:
     - ls -al 
 
   post_ci:
-    - docker tag -f shiphitchcock1/nod_multiplepush:build shiphitchcock1/nod_multiplepush:push
-    - docker push shiphitchcock1/nod_multiplepush:push
+   # - docker tag -f shiphitchcock1/nod_multiplepush:build shiphitchcock1/nod_multiplepush:push
+    - docker push shiphitchcock1/nod_multiplepush:build
     
 integrations:
   hub:

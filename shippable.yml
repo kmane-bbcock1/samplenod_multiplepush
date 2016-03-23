@@ -12,11 +12,11 @@ node_js:
 
 build:
   pre_ci:
-    - docker build -t=shiphitchcock1/nod_multiplepush:build .
+    - docker build -t=shiphitchcock1/nod_multiplepush:buildtest .
 
   pre_ci_boot:
       image_name: shiphitchcock1/nod_multiplepush
-      image_tag: build
+      image_tag: buildtest
       pull: false
       options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
 
@@ -26,8 +26,8 @@ build:
     - ls -al 
 
   post_ci:
-   # - docker tag -f shiphitchcock1/nod_multiplepush:build shiphitchcock1/nod_multiplepush:push
-    - docker push shiphitchcock1/nod_multiplepush:build
+    - docker tag -f shiphitchcock1/nod_multiplepush:buildtest shiphitchcock1/nod_multiplepush:pushtest
+    - docker push shiphitchcock1/nod_multiplepush:pushtest
     
 integrations:
   hub:

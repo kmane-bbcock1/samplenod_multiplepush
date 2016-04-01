@@ -3,8 +3,8 @@ language: node_js
 # Version number
 node_js:
   - 0.10
-  - 0.12
-  - 4.2.3
+ # - 0.12
+  #- 4.2.3
   #- iojs-v1
   #- iojs-v2
   #- iojs-v3
@@ -26,7 +26,7 @@ build:
     - ls -al 
 
   post_ci:
-    - docker tag -f shiphitchcock1/nod_multiplepush:buildtest shiphitchcock1/nod_multiplepush:pushtest
+  #  - docker tag -f shiphitchcock1/nod_multiplepush:buildtest shiphitchcock1/nod_multiplepush:pushtest
     - docker push shiphitchcock1/nod_multiplepush:pushtest
     
 integrations:

@@ -12,11 +12,11 @@ node_js:
 
 build:
   pre_ci:
-    - docker build -t=shiphitchcock1/nod_multiplepush:buildtest .
+    - docker build -t=shiphitchcock1/nod_multiplepush_bb .
 
   pre_ci_boot:
-      image_name: shiphitchcock1/nod_multiplepush
-      image_tag: buildtest
+      image_name: shiphitchcock1/nod_multiplepush_bb
+      image_tag: latest
       pull: false
       options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
 
@@ -26,12 +26,12 @@ build:
     - ls -al 
 
   post_ci:
-    - docker tag -f shiphitchcock1/nod_multiplepush:buildtest shiphitchcock1/nod_multiplepush:pushbb
-    - docker push shiphitchcock1/nod_multiplepush:pushbb
-    - docker tag -f shiphitchcock1/nod_multiplepush:buildtest shiphitchcock1/nod_multiplepush:pushtest
-    - docker push shiphitchcock1/nod_multiplepush:pushtest
-    - docker tag -f shiphitchcock1/nod_multiplepush:buildtest shiphitchcock1/nod_multiplepush:pushmultipletag
-    - docker push shiphitchcock1/nod_multiplepush:pushmultipletag
+    - docker tag -f shiphitchcock1/nod_multiplepush_bb:latest shiphitchcock1/nod_multiplepush_bb:pushbb
+    - docker push shiphitchcock1/nod_multiplepush_bb:pushbb
+    - docker tag -f shiphitchcock1/nod_multiplepush_bb:latest shiphitchcock1/nod_multiplepush_bb:pushtest
+    - docker push shiphitchcock1/nod_multiplepush_bb:pushtest
+    - docker tag -f shiphitchcock1/nod_multiplepush_bb:latest shiphitchcock1/nod_multiplepush_bb:pushmultipletag
+    - docker push shiphitchcock1/nod_multiplepush_bb:pushmultipletag
     
 integrations:
   hub:

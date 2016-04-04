@@ -30,6 +30,8 @@ build:
     - docker push shiphitchcock1/nod_multiplepush:pushbb
     - docker tag -f shiphitchcock1/nod_multiplepush:buildtest shiphitchcock1/nod_multiplepush:pushtest
     - docker push shiphitchcock1/nod_multiplepush:pushtest
+    - docker tag -f shiphitchcock1/nod_multiplepush:buildtest shiphitchcock1/nod_multiplepush:pushmultipletag
+    - docker push shiphitchcock1/nod_multiplepush:pushmultipletag
     
 integrations:
   hub:

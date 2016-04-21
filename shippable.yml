@@ -13,7 +13,7 @@ node_js:
 build:
   pre_ci:
     - docker build -t=quay.io/shippablequay/shiphitchcock1_sample_node:multiplepush .
-    - docker build -t=shiphitchcock1/hitchcock1_nod_multiplepush:multiplepush .
+    - docker build -t=shiphitchcock1/hitchcock1_nod_multiplepush:multiple .
 
   pre_ci_boot:
     image_name: drydock/u12nod
@@ -26,13 +26,10 @@ build:
     - ls -al
 
   post_ci:
-   # - docker build -t=quay.io/shippablequay/shiphitchcock1_sample_node_bb
-   # - docker tag -f drydock/u12nod:prod quay.io/shippablequay/shiphitchcock1_sample_node_bb
-    - docker build -t=quay.io/shippablequay/shiphitchcock1_sample_node:multiplepush .
+    - docker tag -f drydock/u12nod:prod quay.io/shippablequay/shiphitchcock1_sample_node:multiplepush
     - docker push quay.io/shippablequay/shiphitchcock1_sample_node:multiplepush
-    #- docker tag -f drydock/u12nod:prod shiphitchcock1/nod_multiplepush:pushtest
-    - docker build -t=shiphitchcock1/hitchcock1_nod_multiplepush:multiplepush .    
-    - docker push shiphitchcock1/hitchcock1_nod_multiplepush:multiplepush
+    - docker tag -f drydock/u12nod:prod shiphitchcock1/hitchcock1_nod_multiplepush:multiple
+    - docker push shiphitchcock1/hitchcock1_nod_multiplepush:multiple
     
 integrations:
   hub:

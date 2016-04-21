@@ -14,7 +14,7 @@ build:
   pre_ci:
     - docker build -t=shiphitchcock1/nod_multiplepush_bb_21apr .
     - docker build -t=shiphitchcock1/nod_multiplepush_bb_apr21 .
-    - docker build -t=shippabledocker/hitchcock1_node_multiplepush_bb
+    - docker build -t=shippabledocker/hitchcock1_node_multiplepush_bb .
 
   pre_ci_boot:
       image_name: shiphitchcock1/nod_multiplepush_bb_21apr

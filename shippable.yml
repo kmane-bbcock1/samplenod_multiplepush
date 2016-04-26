@@ -3,13 +3,37 @@ language: node_js
 # Version number
 node_js:
   - 0.10
-  - 0.12
+  #- 0.12
  # - 4.2.3
-  #- iojs-v1
+ # - iojs-v1
   #- iojs-v2
   #- iojs-v3
-  - 5.0
+  #- 5.0
 
 build:
+  pre_ci:
+    - docker build -t=quay.io/shippablequay/shiphitchcock1_sample_node:multiplepush .
+    - docker build -t=shiphitchcock1/hitchcock1_nod_multiplepush:multiple .
+
+  pre_ci_boot:
+    image_name: drydock/u12nod
+    image_tag: prod
+    pull: false
+    options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
+
   ci:
-    - node --version
+    - ps -eax
+    - ls -al
+
+  post_ci:
+    - docker tag -f drydock/u12nod:prod quay.io/shippablequay/shiphitchcock1_sample_node:multiplepush
+    - docker push quay.io/shippablequay/shiphitchcock1_sample_node:multiplepush
+    - docker tag -f drydock/u12nod:prod shiphitchcock1/hitchcock1_nod_multiplepush:multiple
+    - docker push shiphitchcock1/hitchcock1_nod_multiplepush:multiple
+    
+integrations:
+  hub:
+    - integrationName: ship-quay
+      type: quay.io
+    - integrationName: shiphitchcock1-hub
+      type: docker

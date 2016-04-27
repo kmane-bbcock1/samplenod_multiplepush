@@ -13,11 +13,11 @@ node_js:
 build:
   pre_ci:
    # - docker build -t=quay.io/shippablequay/shiphitchcock1_auto_node .
-    - docker build -t=shiphitchcock1/auto_nod_push .
+    - docker build -t=shiphitchcock1/sample_pyt0 .
     #- docker build -t=shippabledocker/shiphitchcock1_auto_nod
 
   pre_ci_boot:
-    image_name: shiphitchcock1/auto_nod_push
+    image_name: shiphitchcock1/sample_pyt0
     image_tag: latest
     pull: false
     options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
@@ -30,7 +30,7 @@ build:
     #- docker tag -f shiphitchcock1/auto_nod_push:latest quay.io/shippablequay/shiphitchcock1_auto_node
     #- docker push quay.io/shippablequay/shiphitchcock1_auto_node
     #- docker tag -f shiphitchcock1/auto_nod_push:latest shiphitchcock1/auto_nod_push:test
-    - docker push shiphitchcock1/auto_nod_push:latest
+    - docker push shiphitchcock1/sample_pyt0
   #  - docker tag -f shiphitchcock1/auto_nod_multiplepush:latest shippabledocker/shiphitchcock1_auto_nod
    # - docker push shippabledocker/shiphitchcock1_auto_nod
     

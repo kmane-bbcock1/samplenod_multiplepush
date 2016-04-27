@@ -27,18 +27,18 @@ build:
     - ls -al
 
   post_ci:
-    - docker tag -f shiphitchcock1/auto_nod_push:latest quay.io/shippablequay/shiphitchcock1_auto_node
-    - docker push quay.io/shippablequay/shiphitchcock1_auto_node
-    - docker tag -f shiphitchcock1/auto_nod_push:latest shiphitchcock1/auto_nod_push:test
+    #- docker tag -f shiphitchcock1/auto_nod_push:latest quay.io/shippablequay/shiphitchcock1_auto_node
+    #- docker push quay.io/shippablequay/shiphitchcock1_auto_node
+    #- docker tag -f shiphitchcock1/auto_nod_push:latest shiphitchcock1/auto_nod_push:test
     - docker push shiphitchcock1/auto_nod_push:test
   #  - docker tag -f shiphitchcock1/auto_nod_multiplepush:latest shippabledocker/shiphitchcock1_auto_nod
    # - docker push shippabledocker/shiphitchcock1_auto_nod
     
 integrations:
   hub:
-    - integrationName: ship-quay
-      type: quay.io
+   # - integrationName: ship-quay
+   #   type: quay.io
     - integrationName: shiphitchcock1-hub
       type: docker
-    - integrationName: ship-docker
-      type: docker
+    #- integrationName: ship-docker
+     # type: docker

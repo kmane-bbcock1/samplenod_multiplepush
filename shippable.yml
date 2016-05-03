@@ -2,22 +2,22 @@ language: node_js
 
 # Version number
 node_js:
-  - 0.10
-  - 0.12
-  - 4.2.3
+ # - 0.10
+  #- 0.12
+ # - 4.2.3
   - iojs-v1
-  - iojs-v2
-  - iojs-v3
-  - 5.0
+ # - iojs-v2
+ # - iojs-v3
+  #- 5.0
 
 build:
-  pre_ci:
-    - docker build -t=quay.io/shippablequay/shiphitchcock1_sample_node .
+ # pre_ci:
+   # - docker build -t=quay.io/shippablequay/shiphitchcock1_sample_node .
 
   pre_ci_boot:
     image_name: quay.io/shippablequay/shiphitchcock1_sample_node
     image_tag: latest
-    pull: false
+    pull: true
     options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
 
   ci:
@@ -25,8 +25,8 @@ build:
     - ls -al
 
   post_ci:
-   # - docker build -t=quay.io/shippablequay/shiphitchcock1_sample_node_bb
-    - docker push quay.io/shippablequay/shiphitchcock1_sample_node_bb
+    - docker build -t=quay.io/shippablequay/shiphitchcock1_sample_node_bb:$BRANCH.$BUILD_NUMBER
+    - docker push quay.io/shippablequay/shiphitchcock1_sample_node_bb:$BRANCH.$BUILD_NUMBER
 
 integrations:
   hub:

@@ -35,7 +35,7 @@ build:
     #- docker build -t=shiphitchcock1/nod_multiplepush_bb:t1 .
     #- docker tag -f shiphitchcock1/nod_multiplepush_bb:latest shiphitchcock1/nod_multiplepush_bb:pushtest
     #- docker push shiphitchcock1/nod_multiplepush_bb_21apr
-    - docker push shiphitchcock1/nod_multiplepush #:like
+    - docker push shiphitchcock1/nod_multiplepush:test
     
     #- docker build -t=shiphitchcock1/nod_multiplepush_bb:t2 .
     #- docker tag -f shiphitchcock1/nod_multiplepush_bb:latest shiphitchcock1/nod_multiplepush_bb:pushmultipletag

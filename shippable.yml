@@ -17,7 +17,7 @@ build:
 
   pre_ci_boot:
     image_name: drydock/u12nod
-    image_tag: prod
+    image_tag: prod  
     pull: false
     options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
 
